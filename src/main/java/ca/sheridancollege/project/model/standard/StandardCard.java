@@ -7,7 +7,7 @@ package ca.sheridancollege.project.model.standard;
 
 import ca.sheridancollege.project.model.Card;
 
-public class StandardDeckCard extends Card {
+public class StandardCard extends Card {
 
     public enum Suit {
         HEARTS, DIAMONDS, SPADES, CLUBS
@@ -20,7 +20,7 @@ public class StandardDeckCard extends Card {
     private final Suit suit;
     private final Value value;
 
-    public StandardDeckCard(Suit suit, Value value) {
+    public StandardCard(Suit suit, Value value) {
         this.suit = suit;
         this.value = value;
     }

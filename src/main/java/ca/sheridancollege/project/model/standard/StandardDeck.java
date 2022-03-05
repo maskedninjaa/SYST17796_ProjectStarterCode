@@ -11,10 +11,10 @@ public class StandardDeck extends Deck {
 
     @Override
     public void generateDeck() {
-        for (StandardDeckCard.Suit s : StandardDeckCard.Suit.values()) {
-            for (StandardDeckCard.Value v : StandardDeckCard.Value.values()) {
-                StandardDeckCard standardDeckCard = new StandardDeckCard(s, v);
-                this.getCards().add(standardDeckCard);
+        for (StandardCard.Suit s : StandardCard.Suit.values()) {
+            for (StandardCard.Value v : StandardCard.Value.values()) {
+                StandardCard standardCard = new StandardCard(s, v);
+                this.getCards().add(standardCard);
             }
         }
     }
