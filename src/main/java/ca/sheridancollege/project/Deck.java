@@ -5,7 +5,6 @@
  */
 package ca.sheridancollege.project;
 
-import java.util.ArrayList;
 import java.util.Collections;
 
 /**
@@ -15,41 +14,45 @@ import java.util.Collections;
  * @author dancye
  * @author Paul Bonenfant Jan 2020
  */
-public class GroupOfCards {
+public class Deck { // similar to card hand class
 
     //The group of cards, stored in an ArrayList
-    private ArrayList<Card> cards;
-    private int size;//the size of the grouping
+    private final int deckSize = 52;//the size of the grouping
+    private final Card[] cards = new Card[deckSize];
 
-    public GroupOfCards(int size) {
-        this.size = size;
+    public Deck() {
+        generateHand();
     }
+    private void generateHand() {
+        int countCards = 0;
+
+        for(Card.Suit s : Card.Suit.values()) {
+            for(Card.Value v : Card.Value.values()) {
+                cards[countCards] = (new Card(s, v));
+                countCards++;
+            }
+        }
+    }
+
 
     /**
      * A method that will get the group of cards as an ArrayList
      *
      * @return the group of cards.
      */
-    public ArrayList<Card> getCards() {
+    public Card[] getCards() {
         return cards;
     }
 
-    public void shuffle() {
-        Collections.shuffle(cards);
-    }
+    // public void shuffle() { Collections.shuffle(cards); }
 
     /**
      * @return the size of the group of cards
      */
-    public int getSize() {
-        return size;
-    }
+    // public int getSize() { return size;}
 
     /**
      * @param size the max size for the group of cards
      */
-    public void setSize(int size) {
-        this.size = size;
-    }
-
-}//end class
+    // public void setSize(int size) { this.size = size;}
+}
