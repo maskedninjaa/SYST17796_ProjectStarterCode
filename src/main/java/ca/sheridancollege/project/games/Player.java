@@ -6,6 +6,7 @@
 package ca.sheridancollege.project.games;
 
 import ca.sheridancollege.project.model.Card;
+import ca.sheridancollege.project.model.standard.StandardDeck;
 
 /**
  * A class that models each Player in the game. Players have an identifier, which should be unique.
@@ -48,4 +49,5 @@ public abstract class Player {
      */
     public abstract Card play();
 
+    public abstract void receive(StandardDeck deck);
 }

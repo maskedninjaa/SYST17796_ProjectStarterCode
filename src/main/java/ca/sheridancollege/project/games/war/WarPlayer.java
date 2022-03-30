@@ -13,12 +13,15 @@ public class WarPlayer extends Player {
         super(name);
     }
 
-    public void receive(StandardCard card) { // this is the player receiving cards to the bottom of their hand (multiple cards)
+    public void receive(StandardCard card) { // this is the player receiving cards to the bottom of their hand (multiple cards - call more than once)
         hand.add(card);  // ok
     }
 
     @Override
     public StandardCard play() { // this is the player flipping a card from the top of their hand (single card most of the time, but sometimes multiple cards)
-        return null; //....
+        if(!hand.isEmpty()) {
+            return hand.remove(0);
+        }
+        return null;
     }
 }

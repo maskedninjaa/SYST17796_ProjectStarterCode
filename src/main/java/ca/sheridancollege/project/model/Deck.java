@@ -5,14 +5,14 @@
  */
 package ca.sheridancollege.project.model;
 
-import ca.sheridancollege.project.model.Card;
+import ca.sheridancollege.project.model.standard.StandardDeck;
 
 import java.util.ArrayList;
 import java.util.Collections;
 public abstract class Deck {
 
     //The group of cards, stored in an ArrayList
-    private final ArrayList<Card> cards = new ArrayList<Card>();
+    private final ArrayList<Card> cards = new ArrayList<>();
     private int size;//the size of the grouping
 
     public Deck(int size) {
@@ -28,8 +28,9 @@ public abstract class Deck {
         return cards;
     }
 
-    public void shuffle() {
+    public StandardDeck shuffle() {
         Collections.shuffle(cards);
+        return null;
     }
 
     /**
