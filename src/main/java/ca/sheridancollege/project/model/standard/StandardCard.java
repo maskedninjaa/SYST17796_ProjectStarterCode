@@ -37,4 +37,6 @@ public class StandardCard extends Card {
     public Value getValue() {
         return this.value;
     }
+
+    // equals method
 }

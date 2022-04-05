@@ -48,6 +48,4 @@ public abstract class Player {
      * with logic to play your game.
      */
     public abstract Card play();
-
-    public abstract void receive(StandardDeck deck);
 }

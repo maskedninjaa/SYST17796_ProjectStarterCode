@@ -19,9 +19,10 @@ public class WarPlayer extends Player {
 
     @Override
     public StandardCard play() { // this is the player flipping a card from the top of their hand (single card most of the time, but sometimes multiple cards)
-        if(!hand.isEmpty()) {
+        if (!hand.isEmpty()) {
             return hand.remove(0);
         }
         return null;
     }
+
 }
