@@ -12,6 +12,7 @@ import java.util.List;
 public class WarGame extends Game {
 
     private int roundNumber = 1;
+    WarPlayer winner; // need this variable to declare a winner
 
     public WarGame(String name) {
         super(name);
@@ -47,32 +48,39 @@ public class WarGame extends Game {
             StandardCard firstPlayersCard = player1.play(); // saving the output of the method, so we can use it to compare
             if(firstPlayersCard == null) {
                 // declare winner as player 2 - need to stop execution (return)
+                winner = player2;
+                declareWinner();
                 return;
             }
             // player 2 will play second
             StandardCard secondPlayersCard = player2.play(); // saving the output of the method
             if(secondPlayersCard == null ) {
                 // declare winner as player 1
+                winner = player1;
+                declareWinner();
                 return;
             }
             // the cards will then be compared based on rank (value)
-            // if player 1 has a higher ranked card, then they win that round and player 1 receives all the cards
-            if(firstPlayersCard > secondPlayersCard) { // look at this next time as well
-                // receive method etc.
-                player1.receive(firstPlayersCard); // need to call multiple times?
-            }
+
             // if player 1 has a lower ranked card, then they lose that round and player 2 receives all the cards
-            // if player 1 has the same ranked card as player 2, then something crazy will happen
-
-
+            if(firstPlayersCard.compareTo(secondPlayersCard) < 0) { // need to call compareTo method to compare objects (King > Queen , Ace is lowest)
+                // receive method etc.
+                player2.receive(firstPlayersCard); // need to call multiple times?
+                player2.receive(secondPlayersCard);
+                // if player 1 has a higher ranked card, then they win that round and player 1 receives all the cards
+            } else if(firstPlayersCard.compareTo(secondPlayersCard) > 0) {
+                player1.receive(secondPlayersCard);
+                player1.receive(firstPlayersCard);
+            } else { // todo SPECIAL CASE - enable WAR
+                // if player 1 has the same ranked card as player 2, then something crazy will happen - aka WAR
+                System.out.println("Need to add the SPECIAL CASE still....");
+            }
         }
         roundNumber++;
-
-
     }
 
     @Override
     public void declareWinner() {
-        // figure this out by myself somehow
+        System.out.println("Congratulations, you are the winner of WAR!");
     }
 }
