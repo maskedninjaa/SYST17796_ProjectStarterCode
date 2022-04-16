@@ -28,9 +28,8 @@ public abstract class Deck {
         return cards;
     }
 
-    public StandardDeck shuffle() {
+    public void shuffle() {
         Collections.shuffle(cards);
-        return null;
     }
 
     /**
